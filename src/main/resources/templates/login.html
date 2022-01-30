@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th=”http://www.thymeleaf.org”>
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 	<head>
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -7,6 +7,7 @@
 	</head>
 	
 	<body>
+	  <div layout:fragment="content">
 		<form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="POST">
 			<table>
 				<tr>
@@ -26,5 +27,6 @@
 		</form>
 		<p>Don't have an account?</p>
 		<a th:href="@{../register/}">Register</a>
+	  </div>
 	</body>
 </html>

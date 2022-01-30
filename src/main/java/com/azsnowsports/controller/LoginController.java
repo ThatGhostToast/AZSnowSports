@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.azsnowsports.model.LoginModel;
 
 @Controller
@@ -23,7 +25,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/doLogin")
-	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model)
+	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model, RedirectAttributes redirAttrs)
 	{
 		//Check for validation errors
 		if (bindingResult.hasErrors())
@@ -32,6 +34,13 @@ public class LoginController {
 			return "login";
 		}
 		
-		return "loginSuccess";
+		//Temporary authentication
+		if (loginModel.getUsername().equals("Username") && loginModel.getPassword().equals("Password"))
+		{
+			return "loginSuccess";
+		} else {
+			return "login";	
+		}
+		
 	}
 }

@@ -1,93 +1,124 @@
 <!DOCTYPE html>
-<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
 
 <head>
-    <meta charset="utf-8">
-    <title>Home - AZSnowSports</title>
+	<meta charset="utf-8">
+	<title>Home - AZSnowSports</title>
 </head>
 
 <body>
-  <div layout:fragment="content">
-    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-        <div class="container"><a class="navbar-brand" href="#"><img src="assets/images/AZSnowSports-logos_transparent_Long.png" height="50" weight="50"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
-            <div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ms-auto" role="button" th:href="@{login/}">Sign In</a></div>
-        </div>
-    </nav>
-    <header class="text-center text-white masthead" style="background: url(&quot;assets/images/arnur-turpakpayev-KXXBVqAjBaA-unsplash.jpg&quot;);background-size: cover;">
-        <div class="overlay" style="background: url(&quot;assets/images/arnur-turpakpayev-KXXBVqAjBaA-unsplash.jpg&quot;);"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-9 mx-auto position-relative" style="text-align: center;">
-                    <h1 class="mb-5" style="border-color: var(--bs-gray-900);text-align: center;color: rgb(255,255,255);">Welcome to AZSnowSports!</h1>
-                    <p style="color: rgb(255,255,255);font-size: 20px;">The first ever social media designed for people who love to hit the slopes!<br>Share stories, and meet new friends!</p>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section class="text-center bg-light features-icons">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
-                        <h3>See stories from other&nbsp; users like you!</h3>
-                        <p class="lead mb-0">Tell your tales of epic adventures on the slopes</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><i class="icon-compass m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
-                        <h3>See who's in your area</h3>
-                        <p class="lead mb-0">Looking for a group to hit the mountain with? Find people near you who are looking too!</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><i class="icon-basket m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
-                        <h3>Looking to buy or sell equipment?</h3>
-                        <p class="lead mb-0">Our marketplace allows for users to buy and sell equipment from users in their area!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="showcase">
-        <div class="container-fluid p-0">
-            <div class="row g-0">
-                <div class="col-md-12 col-lg-6 offset-md-0 text-white order-lg-2 showcase-img" style="background: url(&quot;assets/images/alain-wong-f-oxr0Lk5EU-unsplash.jpg&quot;);background-size: cover;"><span></span></div>
-                <div class="col-lg-6 my-auto order-lg-1 showcase-text">
-                    <h2>Make lifelong friendships!</h2>
-                    <p class="lead mb-0">Connect with people like you from your area and make lifelong friendships so you always have someone to take with you to the mountain!</p>
-                </div>
-            </div>
-            <div class="row g-0">
-                <div class="col-lg-6 text-white showcase-img" style="background: url(&quot;assets/images/joshua-reddekopp-6rGLwZUiLmo-unsplash.jpg&quot;);background-size: cover;"><span></span></div>
-                <div class="col-lg-6 my-auto order-lg-1 showcase-text">
-                    <h2>Upgrade your gear!</h2>
-                    <p class="lead mb-0">Our marketplace makes it easy to buy and sell gear so you can always be ready</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <p></p>
-    <section class="text-center text-white call-to-action" style="background: url(&quot;assets/images/rodrigo-dos-reis-ct-CUb3N4qA-unsplash.jpg&quot;) center center / cover no-repeat;">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-9 mx-auto position-relative">
-                    <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-                </div>
-                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
-                    <form>
-                        <div class="row">
-                            <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="email" placeholder="Enter your email..."></div>
-                            <div class="col-12 col-md-3"><button class="btn btn-primary btn-lg" type="submit">Sign up!</button></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-  </div>
- </body>
+	<div layout:fragment="content">
+		<!-- Navbar -->
+		<nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+			<div class="container"><a class="navbar-brand" href="#"><img
+						src="http://localhost:8080/assets/images/AZSnowSports-logos_transparent_Long.png" height="50" weight="50"></a><button
+					data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
+				<div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ms-auto" role="button"
+						th:href="@{/login/}">Sign In</a></div>
+			</div>
+		</nav>
+
+		<!-- Header section (Big picture and welcome message) -->
+		<header class="text-center text-white masthead"
+			style="background: url(&quot;http://localhost:8080/assets/images/arnur-turpakpayev-KXXBVqAjBaA-unsplash.jpg&quot;);background-size: cover;">
+			<div class="overlay"
+				style="background: url(&quot;http://localhost:8080/assets/images/arnur-turpakpayev-KXXBVqAjBaA-unsplash.jpg&quot;);"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-9 mx-auto position-relative" style="text-align: center;">
+						<h1 class="mb-5"
+							style="border-color: var(--bs-gray-900);text-align: center;color: rgb(255,255,255);">Welcome
+							to AZSnowSports!</h1>
+						<p style="color: rgb(255,255,255);font-size: 20px;">The first ever social media designed for
+							people who love to hit the slopes!<br>Share stories, and meet new friends!</p>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Small about section with icons -->
+		<section class="text-center bg-light features-icons">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+							<div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary"
+									data-bss-hover-animate="pulse"></i></div>
+							<h3>See stories from other&nbsp; users like you!</h3>
+							<p class="lead mb-0">Tell your tales of epic adventures on the slopes</p>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+							<div class="d-flex features-icons-icon"><i class="icon-compass m-auto text-primary"
+									data-bss-hover-animate="pulse"></i></div>
+							<h3>See who's in your area</h3>
+							<p class="lead mb-0">Looking for a group to hit the mountain with? Find people near you who
+								are looking too!</p>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+							<div class="d-flex features-icons-icon"><i class="icon-basket m-auto text-primary"
+									data-bss-hover-animate="pulse"></i></div>
+							<h3>Looking to buy or sell equipment?</h3>
+							<p class="lead mb-0">Our marketplace allows for users to buy and sell equipment from users
+								in their area!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Large picture grid layout -->
+		<section class="showcase">
+			<div class="container-fluid p-0">
+				<div class="row g-0">
+					<div class="col-md-12 col-lg-6 offset-md-0 text-white order-lg-2 showcase-img"
+						style="background: url(&quot;http://localhost:8080/assets/images/alain-wong-f-oxr0Lk5EU-unsplash.jpg&quot;);background-size: cover;">
+						<span></span></div>
+					<div class="col-lg-6 my-auto order-lg-1 showcase-text">
+						<h2>Make lifelong friendships!</h2>
+						<p class="lead mb-0">Connect with people like you from your area and make lifelong friendships
+							so you always have someone to take with you to the mountain!</p>
+					</div>
+				</div>
+				<div class="row g-0">
+					<div class="col-lg-6 text-white showcase-img"
+						style="background: url(&quot;http://localhost:8080/assets/images/joshua-reddekopp-6rGLwZUiLmo-unsplash.jpg&quot;);background-size: cover;">
+						<span></span></div>
+					<div class="col-lg-6 my-auto order-lg-1 showcase-text">
+						<h2>Upgrade your gear!</h2>
+						<p class="lead mb-0">Our marketplace makes it easy to buy and sell gear so you can always be
+							ready</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<p></p>
+		<!-- Bottom section that allows the user to enter their email and go to registration -->
+		<section class="text-center text-white call-to-action"
+			style="background: url(&quot;http://localhost:8080/assets/images/rodrigo-dos-reis-ct-CUb3N4qA-unsplash.jpg&quot;) center center / cover no-repeat;">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-9 mx-auto position-relative">
+						<h2 class="mb-4">Ready to get started? Sign up now!</h2>
+					</div>
+					<div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+						<form>
+							<div class="row">
+								<div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg"
+										type="email" placeholder="Enter your email..."></div>
+								<div class="col-12 col-md-3"><button class="btn btn-primary btn-lg" type="submit">Sign
+										up!</button></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
 </html>

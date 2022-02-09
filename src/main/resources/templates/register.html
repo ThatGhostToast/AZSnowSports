@@ -1,42 +1,102 @@
 <!DOCTYPE html>
-<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
-	<head>
-		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    	<title>Register - AZSnowSports</title>
-	</head>
-	
-	<body>
-	  <div layout:fragment="content">
-	  <!-- Registration Form -->
-		<form action="#" th:action="@{doRegister}" th:object="${userModel}" method="POST">
-			<table>
-				<tr>
-					<td>First Name:</td><td><input type="text" th:field="*{firstName}"></td><td><h5 style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</h5></td>
-				</tr>
-				<tr>
-					<td>Last Name:</td><td><input type="text" th:field="*{lastName}"></td><td><h5 style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</h5></td>
-				</tr>
-				<tr>
-					<td>EMail:</td><td><input type="email" th:field="*{email}"></td><td><h5 style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">EMail Error</h5></td>
-				</tr>
-				<tr>
-					<td>Address:</td><td><input type="text" th:field="*{address}"></td><td><h5 style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</h5></td>
-				</tr>
-				<tr>
-					<td>Phone Number:</td><td><input type="number" th:field="*{phoneNumber}"></td><td><h5 style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Phone Number Error</h5></td>
-				</tr>
-				<tr>
-					<td>Username:</td><td><input type="text" th:field="*{username}"></td><td><h5 style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</h5></td>
-				</tr>
-				<tr>
-					<td>Password:</td><td><input type="password" th:field="*{password}"></td><td><h5 style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Submit"></td>
-				</tr>
-			</table>
-		</form>
-	  </div>
-	</body>
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/formTemplate.html">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Register - AZSnowSports</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="limiter">
+			<div class="container-login100"
+				style="background-image: url(&quot;http://localhost:8080/assets/images/arnur-turpakpayev-KXXBVqAjBaA-unsplash.jpg&quot;);">
+				<div class="wrap-login100">
+					<form class="login100-form validate-form" action="#" th:action="@{doRegister}"
+						th:object="${userModel}" method="POST">
+						<span class="login100-form-logo">
+							<i class="zmdi zmdi-landscape"></i>
+						</span>
+
+						<span class="login100-form-title p-b-34 p-t-27">
+							Register
+						</span>
+
+						<div class="wrap-input100 validate-input" data-validate="Enter First Name">
+							<input class="input100" type="text" th:field="*{firstName}" placeholder="First Name">
+							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<h5 style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+								First
+								Name Error</h5>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate="Enter Last Name">
+							<input class="input100" type="text" th:field="*{lastName}" placeholder="Last Name">
+							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<h5 style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+								Last
+								Name Error</h5>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate="Enter Email">
+							<input class="input100" type="email" th:field="*{email}" placeholder="EMail">
+							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<h5 style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">EMail
+								Error
+							</h5>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate="Enter Address">
+							<input class="input100" type="text" th:field="*{address}" placeholder="Address">
+							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<h5 style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address
+							Error</h5>
+						</div>
+						
+						<div class="wrap-input100 validate-input" data-validate="Enter Phone Number">
+							<input class="input100" type="tel" th:field="*{phoneNumber}" placeholder="Phone Number">
+							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<h5 style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
+							Phone Number Error</h5>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate="Enter username">
+							<input class="input100" type="text" th:field="*{username}" placeholder="Username">
+							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<h5 style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+								Username
+								Error</h5>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate="Enter password">
+							<input class="input100" type="password" th:field="*{password}" placeholder="Password">
+							<span class="focus-input100" data-placeholder="&#xf191;"></span>
+							<h5 style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+								Password
+								Error</h5>
+						</div>
+
+						<div class="container-login100-form-btn">
+							<button class="login100-form-btn">
+								Register
+							</button>
+						</div>
+
+						<div class="text-center p-t-90">
+							<a class="txt1" th:href="@{../login/}">
+								Login
+							</a>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+</body>
+
 </html>

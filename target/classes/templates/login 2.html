@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="/layouts/defaultTemplate.html">
+
+<head>
+	<meta charset="utf-8">
+	<title>Login - AZSnowSports</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<!-- Login form -->
+		<form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="POST">
+			<table>
+				<tr>
+					<td>Username:</td>
+					<td><input type="text" th:field="*{username}"></td>
+					<td>
+						<h5 style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username
+							Error</h5>
+					</td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" th:field="*{password}"></td>
+					<td>
+						<h5 style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
+							Error</h5>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Submit"></td>
+				</tr>
+			</table>
+			<div th:if="${#fields.hasErrors('*')}">List of errors</div>
+			<div th:each="err : ${#fields.errors('*')}">
+				<span style="color:red" th:text="${err}" class="fieldError"></span>
+			</div>
+		</form>
+		<!-- Section that allows the user to register -->
+		<p>Don't have an account?</p>
+		<a th:href="@{../register/}">Register</a>
+	</div>
+</body>
+
+</html>

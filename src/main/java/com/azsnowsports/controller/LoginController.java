@@ -11,6 +11,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.azsnowsports.model.LoginModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Controller used for login pages
+ */
 @Controller
 @RequestMapping("/login")
 public class LoginController {

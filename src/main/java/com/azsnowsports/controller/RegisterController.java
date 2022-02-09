@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.azsnowsports.model.UserModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ * 
+ * Controller used for registration pages
+ */
 @Controller
 @RequestMapping("/register")
 public class RegisterController {

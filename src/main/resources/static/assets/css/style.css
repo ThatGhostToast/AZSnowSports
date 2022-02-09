@@ -2069,7 +2069,7 @@ textarea.form-control {
 a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none; }
-
+/* Right here dumbass */
 .btn-primary {
   color: #fff;
   background-color: #007bff;

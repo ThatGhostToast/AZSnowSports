@@ -30,7 +30,7 @@ public class UserModel {
 	 * The user's phone number
 	 */
 	@NotNull(message="Phone Number is a required field.")
-	private int phoneNumber;
+	private long phoneNumber;
 	/**
 	 * The user's username
 	 */
@@ -56,7 +56,7 @@ public class UserModel {
 	 * @param passwordVal The password for the user
 	 */
 	public UserModel(String firstNameVal, String lastNameVal, String emailVal, String addressVal, 
-			int phoneNumberVal, String usernameVal, String passwordVal)
+			long phoneNumberVal, String usernameVal, String passwordVal)
 	{
 		this.firstName = firstNameVal;
 		this.lastName = lastNameVal;
@@ -129,13 +129,13 @@ public class UserModel {
 	/**
 	 * @return the phoneNumber
 	 */
-	public int getPhoneNumber() {
+	public long getPhoneNumber() {
 		return phoneNumber;
 	}
 	/**
 	 * @param phoneNumber the phoneNumber to set
 	 */
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	/**

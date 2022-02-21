@@ -12,7 +12,7 @@
 <body>
 	<div layout:fragment="content">
 		<h1>Login successful</h1>
-		<h5 th:text="${user.firstName}">name</h5>
+		<h5 th:text="${blog.body}">name</h5>
 		
 		<div class="Content">
 			<div class="card2">
@@ -21,16 +21,16 @@
 		      <h5>Enter the Blogs Title, and any content you would like.</h5>
 		      </div>
 		    </div>
-		    <form class="postBlog" action="#" th:action="@{doBlogPost}" th:object="${postModel}" method="POST">
+		    <form class="postBlog" action="#" th:action="@{doBlogPost}" th:object="${PostModel}" method="POST">>
 		    	<ul>
 				  <li>
 				    <label for="title">Title:</label>
-				    <input type="text" id="name" th:field="*{title}" placeholder="Username">
+				    <input type="text" id="name" th:feild="*{title}">
 				  </li>
 				  
 				  <li>
 				    <label for="msg">Blog Below:</label>
-				    <textarea id="msg"  ></textarea>
+				    <textarea id="msg" th:feild="*{body}" ></textarea>
 				  </li>
 				  	<li class="button">
 					  <button type="submit">Post Your Blog</button>

@@ -13,5 +13,11 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	public void setUser(String fName, String lName, String email, String addrs, int pn, String uName, String pWord) {
 		user = new UserModel(fName, lName, email, addrs, pn, uName, pWord);
 	}
+
+	@Override
+	public void setUser(String fName, String lName, String email, String addrs, long l, String uName, String pWord) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

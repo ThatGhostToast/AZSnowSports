@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.azsnowsports.business.UserBusinessServiceInterface;
 import com.azsnowsports.model.LoginModel;
+import com.azsnowsports.model.PostModel;
 
 /**
  * @author Zac Almas & Austin Driver
@@ -47,7 +48,7 @@ public class LoginController {
 		//Temporary authentication
 		if (loginModel.getUsername().equals("Username") && loginModel.getPassword().equals("Password"))
 		{
-			
+			model.addAttribute("PostModel", new PostModel());
 			model.addAttribute("user", service.getUser());
 			return "timeline";
 		} else {

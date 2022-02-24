@@ -17,24 +17,31 @@ import com.azsnowsports.model.UserModel;
 @Controller
 @RequestMapping("/timeline")
 public class TimelineController {
-	
+
 	@Autowired
 	private BlogBusinessServiceInterface service;
-	
+
 	@GetMapping("/")
-	public ModelAndView display(UserModel usrModel)
-	{
+	public ModelAndView display(UserModel usrModel) {
 		ModelAndView mav = new ModelAndView("timeline");
 		mav.addObject("user", usrModel);
 		mav.addObject("post", new PostModel());
 		return mav;
 	}
-	
+
 	@PostMapping("/doBlogPost")
-	public String doBlogPost(@Valid PostModel postModel, BindingResult br, Model model)
-	{
-		//model.addAttribute("postModel", new PostModel());
-		model.addAttribute("blog", service.getBlog());
-		return "blogpost";
+	public String doBlogPost(@Valid PostModel postModel, BindingResult br, Model model) {
+
+		// Check for validation errors
+		if (br.hasErrors()) {
+			model.addAttribute("blog", "Timeline Form");
+			return "timeline";
+		}
+		else
+		{
+			// model.addAttribute("postModel", new PostModel());
+			model.addAttribute("blog", service.getBlog());
+			return "blogpost";
+		}
 	}
 }

@@ -4,10 +4,15 @@ import com.azsnowsports.model.PostModel;
 
 public class BlogBusinessService implements BlogBusinessServiceInterface
 {
-	private PostModel blog = new PostModel("First Blog", "Blog Content");
+	private PostModel blog;
 
 	public PostModel getBlog()
 	{
 		return blog;
+	}
+
+	@Override
+	public void saveBlog(PostModel post) {
+		blog = post;
 	}
 }

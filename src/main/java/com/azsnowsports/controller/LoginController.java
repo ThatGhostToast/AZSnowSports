@@ -48,7 +48,7 @@ public class LoginController {
 		//Temporary authentication
 		if (loginModel.getUsername().equals("Username") && loginModel.getPassword().equals("Password"))
 		{
-			model.addAttribute("PostModel", new PostModel());
+			model.addAttribute("postModel", new PostModel());
 			model.addAttribute("user", service.getUser());
 			return "timeline";
 		} else {

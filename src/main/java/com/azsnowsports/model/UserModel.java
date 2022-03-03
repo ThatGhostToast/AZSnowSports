@@ -77,6 +77,17 @@ public class UserModel {
 		this.username = "";
 		this.password = "";
 	}
+	
+	public UserModel(LoginModel login)
+	{
+		this.username = login.getUsername();
+		this.password = login.getPassword();
+		this.firstName = "";
+		this.lastName = "";
+		this.email = "";
+		this.address = "";
+		this.phoneNumber = 0;
+	}
 
 	/**
 	 * @return the firstName

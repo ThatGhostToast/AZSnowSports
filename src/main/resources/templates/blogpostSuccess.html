@@ -17,13 +17,15 @@
 		      <div class="blogTitle">
 			      <h2>Your Blog has been posted!</h2>
 			      <h5>The contents of your blog is:</h5>
+			      <h5 th:text="${blog.title}">title</h5>
 			      <h5 th:text="${blog.body}">name</h5>
-
+				  <h5 th:text="${blog.userid}">user</h5>
 		      </div>
 		    </div> 
+		    
+		    <a th:href="@{/timeline/}" class="btn btn-primary ms-auto">Return to timeline</a>
 		</div>
 	</div>
-	
 </body>
 
 </html>

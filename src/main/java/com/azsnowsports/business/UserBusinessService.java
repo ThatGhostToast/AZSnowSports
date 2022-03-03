@@ -1,23 +1,47 @@
 package com.azsnowsports.business;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.azsnowsports.data.UserDataAccessInterface;
+import com.azsnowsports.model.LoginModel;
 import com.azsnowsports.model.UserModel;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class UserBusinessService implements UserBusinessServiceInterface{
-	private UserModel user = new UserModel("FirstName", "LastName", "email@email.com", "1234 Street Street", 555555, "Username", "Password");
+	private UserModel user;
+	
+	@Autowired
+	private UserDataAccessInterface service;
 	
 	@Override
 	public UserModel getUser() {
-		return user;
+		return this.user;
 	}
 	
-	public void setUser(String fName, String lName, String email, String addrs, int pn, String uName, String pWord) {
-		user = new UserModel(fName, lName, email, addrs, pn, uName, pWord);
-	}
-
 	@Override
-	public void setUser(String fName, String lName, String email, String addrs, long l, String uName, String pWord) {
-		// TODO Auto-generated method stub
+	public void setUser(UserModel user) {
+		this.user = new UserModel(user.getFirstName(), user.getLastName(), user.getEmail(), user.getAddress(), user.getPhoneNumber(), user.getUsername(), user.getPassword());
 		
+	}
+	
+	@Override
+	public boolean checkForUser(LoginModel login)
+	{
+		UserModel user = new UserModel(login);
+		return (service.login(user));
+	}
+	
+	@Override
+	public UserModel createUser(UserModel newUser) {
+		setUser(newUser);
+		service.createUser(newUser);
+		return getUser();
+	}
+	
+	@Override
+	public void loginToUser(LoginModel user) {
+		UserModel userToSearch = new UserModel(user);
+		setUser(service.findByUsername(userToSearch));
 	}
 	
 }

@@ -20,4 +20,5 @@ public class SpringConfig {
 	{
 		return new BlogBusinessService();
 	}
+	
 }

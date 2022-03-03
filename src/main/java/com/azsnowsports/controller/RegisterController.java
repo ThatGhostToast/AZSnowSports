@@ -42,7 +42,7 @@ public class RegisterController {
 			model.addAttribute("title", "Register Form");
 			return "register";
 		}
-		service.setUser(userModel.getFirstName(), userModel.getLastName(), userModel.getEmail(), userModel.getAddress(), userModel.getPhoneNumber(), userModel.getUsername(), userModel.getPassword());
+		service.createUser(userModel);
 		return "registerSuccess";
 	}
 }

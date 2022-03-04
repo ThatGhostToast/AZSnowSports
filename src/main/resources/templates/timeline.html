@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<link th:href="@{../styles/snowSportsCss.css}" rel="stylesheet" />
+	<link th:href="@{../styles/card.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -18,14 +19,14 @@
 	<br />
 
 	<tbody>
-		<div style="border: solid black;">
+		<div class="container">
 			<tr th:each="post : ${blog}">
-				<div style="border: solid black;">
+				<div class="card">
 					<td style="text-align:center">
-						<h5 th:text="${post.title}">title</h5>
+						<h5 th:text="${post.title}" class="card-h1">title</h5>
 					</td>
 					<td style="text-align:center">
-						<h5 th:text="${post.body}">body</h5>
+						<h5 th:text="${post.body}" class="card-p">body</h5>
 					</td>
 				</div>
 			</tr>

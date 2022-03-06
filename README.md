@@ -8,7 +8,7 @@
 ### What is AZSnowSports?
 We designed AZSnowSports with skiers and snowboarders in mind. Here you can post the tales of your great adventures on the slopes and make friends along the way. In future updates, we plan on AZSnowSports to include a shop where you can sell your old used gear and a way to create groups, so you're never alone when you hit the mountain.
 
-![Home Screencap](screencap.gif)
+![Home Screencap](https://github.com/ThatGhostToast/AZSnowSports/blob/main/readme%20assets/NewVideo.gif)
 
 <img src="ScreenShotOfTimeline.png">
 

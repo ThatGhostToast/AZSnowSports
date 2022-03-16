@@ -17,6 +17,7 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 	private DataSource datasource;
 	private JdbcTemplate jdbcTemplateObject;
 	
+	//Constructor
 	public BlogDataService(DataSource dataSource)
 	{
 		this.datasource = dataSource;
@@ -25,7 +26,9 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 	
 	@Override
 	public List<PostModel> getAllBlogs() {
+		//SQL statement used to get the posts from the database
 		String sql = "SELECT * FROM Posts";
+		//List to hold the posts from the database
 		List<PostModel> posts = new ArrayList<PostModel>();
 		try
 		{
@@ -38,6 +41,7 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 			return posts;
 		}catch (Exception e)
 		{
+			//If there's a problem
 			e.printStackTrace();
 		}
 		return null;
@@ -45,17 +49,18 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 
 	@Override
 	public void createBlog(PostModel post) {
+		//SQL statement used to get data from the database
 		String sql = "INSERT INTO Posts(TITLE, BODY, Author) VALUES (?, ?, ?)";
 		try
 		{
 			//Execute SQL insert 
 			int rows = jdbcTemplateObject.update(sql, post.getTitle(), post.getBody(), post.getUserid());
 			
+			//If no rows were effected then it will print this statement
 			if (rows == 0)
 			{
 				System.out.println("ERROR: USER NOT CREATED");
 			}
-			
 		} catch (Exception e)
 		{
 			e.printStackTrace();

@@ -6,6 +6,11 @@ import com.azsnowsports.data.UserDataAccessInterface;
 import com.azsnowsports.model.LoginModel;
 import com.azsnowsports.model.UserModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Business service used for the Users
+ */
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class UserBusinessService implements UserBusinessServiceInterface{
 	/**

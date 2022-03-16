@@ -8,6 +8,11 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
 import com.azsnowsports.model.UserModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Data service used for user data access
+ */
 @Service
 public class UserDataService implements UserDataAccessInterface<UserModel>{
 	@SuppressWarnings("unused")

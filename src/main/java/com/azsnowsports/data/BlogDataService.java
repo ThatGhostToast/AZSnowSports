@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.azsnowsports.model.PostModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Data service used for blog data access
+ */
 @SuppressWarnings({"unused"})
 @Service
 public class BlogDataService implements BlogDataAccessInterface<PostModel> {

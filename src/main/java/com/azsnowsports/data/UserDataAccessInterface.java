@@ -2,6 +2,11 @@ package com.azsnowsports.data;
 
 import com.azsnowsports.model.UserModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Interface used for the user data access
+ */
 public interface UserDataAccessInterface <T>{
 	/**
 	 * Method used to find a user by their username

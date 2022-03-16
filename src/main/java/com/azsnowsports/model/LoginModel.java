@@ -3,6 +3,11 @@ package com.azsnowsports.model;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Model used for logging in
+ */
 public class LoginModel {
 	//Define Variables
 	@NotNull(message="Username is a required field.")

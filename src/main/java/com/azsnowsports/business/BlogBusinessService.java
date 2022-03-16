@@ -5,6 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.azsnowsports.data.BlogDataAccessInterface;
 import com.azsnowsports.model.PostModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Business service used for the blog posts
+ */
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class BlogBusinessService implements BlogBusinessServiceInterface
 {

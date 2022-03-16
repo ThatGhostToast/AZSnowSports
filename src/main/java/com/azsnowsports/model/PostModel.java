@@ -3,6 +3,11 @@ package com.azsnowsports.model;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Model used for posts
+ */
 public class PostModel {
 	/**
 	 * Title of the blog post

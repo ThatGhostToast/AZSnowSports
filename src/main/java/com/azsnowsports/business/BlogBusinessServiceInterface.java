@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.azsnowsports.model.PostModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Interface used for the blog business service
+ */
 public interface BlogBusinessServiceInterface 
 {
 	/**

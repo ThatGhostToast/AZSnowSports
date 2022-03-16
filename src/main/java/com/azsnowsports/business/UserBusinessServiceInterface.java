@@ -3,6 +3,11 @@ package com.azsnowsports.business;
 import com.azsnowsports.model.LoginModel;
 import com.azsnowsports.model.UserModel;
 
+/**
+ * @author Zac Almas & Austin Driver
+ *
+ * Interface used for the user business service
+ */
 public interface UserBusinessServiceInterface {
 	/**
 	 * Method used to get the current user

@@ -16,18 +16,21 @@ Page used to display that the blog post was successfully posted
 
 <body>
 	<div layout:fragment="content">
-		
+		<!-- Content card used to hold the data from the blog post -->
 		<div class="Content">
 			<div class="card2">
 		      <div class="blogTitle">
 			      <h2>Your Blog has been posted!</h2>
 			      <h5>The contents of your blog is:</h5>
+			      <!-- Holds the blog title -->
 			      <h5 th:text="${blog.title}">title</h5>
+			      <!-- Holds the blog body -->
 			      <h5 th:text="${blog.body}">name</h5>
+			      <!-- Holds the blogs author -->
 				  <h5 th:text="${blog.userid}">user</h5>
 		      </div>
 		    </div> 
-		    
+		    <!-- Button to return to the timeline -->
 		    <a th:href="@{/timeline/}" class="btn btn-primary ms-auto">Return to timeline</a>
 		</div>
 	</div>

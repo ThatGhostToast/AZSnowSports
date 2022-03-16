@@ -17,12 +17,14 @@ Timeline page used to display all the blogs after signing in
 
 </body>
 <div layout:fragment="content">
+	<!-- Welcoming the user -->
 	<div class="page-content">
 		<h3>Welcome</h3>
 		<h3 th:text="${user.username}"></h3>
 	</div>
 	<br />
 
+	<!-- Table used to hold all of the blog posts -->
 	<tbody>
 		<div class="container">
 			<tr th:each="post : ${blog}">

@@ -15,6 +15,7 @@ public class HomeController {
 	@GetMapping("/")
 	public String printHello()
 	{
+		//Returns the home page
 		return "home";
 	}
 }

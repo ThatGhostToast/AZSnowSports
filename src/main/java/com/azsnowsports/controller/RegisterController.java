@@ -21,15 +21,20 @@ import com.azsnowsports.model.UserModel;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
+	/**
+	 * Private autowired attribute to access the user business service
+	 */
 	@Autowired
 	private UserBusinessServiceInterface service;
 	
 	@GetMapping("/")
 	public String display(Model model)
 	{
-		// Display the login form view
+		// Display the register form view
 		model.addAttribute("title", "Register Form");
+		//Creating a new user model to be used at registration
 		model.addAttribute("userModel", new UserModel());
+		//Return the registration view
 		return "register";
 	}
 	
@@ -39,10 +44,13 @@ public class RegisterController {
 		//Check for validation errors
 		if (bindingResult.hasErrors())
 		{
+			//If there are errors return the register view
 			model.addAttribute("title", "Register Form");
 			return "register";
 		}
+		//Creating the user in the user business service
 		service.createUser(userModel);
+		//Return success screen
 		return "registerSuccess";
 	}
 }

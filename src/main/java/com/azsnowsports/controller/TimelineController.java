@@ -18,14 +18,21 @@ import com.azsnowsports.model.UserModel;
 @RequestMapping("/timeline")
 public class TimelineController {
 	
+	/**
+	 * Private autowired attribute to access the blog business service
+	 */
 	@Autowired
 	private BlogBusinessService service;
 
 	@GetMapping("/")
 	public ModelAndView display(UserModel usrModel, Model model) {
+		//Create a model and view for our timeline 
 		ModelAndView mav = new ModelAndView("timeline");
+		//Adding a user model as an object to be used
 		mav.addObject("user", usrModel);
+		//Adding all the blogs as objects to be used
 		mav.addObject("blog", service.getAllBlogs());
+		//Return the model and view
 		return mav;
 	}
 }

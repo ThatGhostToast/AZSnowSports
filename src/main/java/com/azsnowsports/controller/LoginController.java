@@ -21,8 +21,14 @@ import com.azsnowsports.model.LoginModel;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+	/**
+	 * Private autowired attribute to access the user business service
+	 */
 	@Autowired
 	private UserBusinessServiceInterface service;
+	/**
+	 * Private autowired attribute to access the blog business service
+	 */
 	@Autowired
 	private BlogBusinessServiceInterface bservice;
 	
@@ -31,6 +37,7 @@ public class LoginController {
 	{
 		// Display the login form view
 		model.addAttribute("title", "Login Form");
+		// Creating a new login model to use
 		model.addAttribute("loginModel", new LoginModel());
 		return "login";
 	}
@@ -41,6 +48,7 @@ public class LoginController {
 		//Check for validation errors
 		if (bindingResult.hasErrors())
 		{
+			//If there are errors the program will not proceed
 			model.addAttribute("title", "Login Form");
 			return "login";
 		}
@@ -48,11 +56,17 @@ public class LoginController {
 		// authentication
 		if (service.checkForUser(loginModel))
 		{
+			//If the user was found in the database
+			//Using user service to login the user 
 			service.loginToUser(loginModel);
+			//Getting all of the blogs to be displayed
 			model.addAttribute("blog", bservice.getAllBlogs());
+			//Getting the user that was just logged in
 			model.addAttribute("user", service.getUser());
+			//Return the timeline view
 			return "timeline";
 		} else {
+			//If the user was not authenticated then the program will not continue
 			return "login";	
 		}
 		

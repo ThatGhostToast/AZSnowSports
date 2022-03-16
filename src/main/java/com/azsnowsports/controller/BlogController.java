@@ -21,15 +21,24 @@ import com.azsnowsports.model.PostModel;
 @Controller
 @RequestMapping("/createBlog")
 public class BlogController {
+	/**
+	 * Private autowired attribute to access the blog business service
+	 */
 	@Autowired
 	private BlogBusinessServiceInterface service;
+	/**
+	 * Private autowired attribute to access the user business service
+	 */
 	@Autowired
 	private UserBusinessServiceInterface userService;
 
 	@GetMapping("/")
 	public ModelAndView display(Model model) {
+		//Model and View used to help our blog display
 		ModelAndView mav = new ModelAndView("createBlog");
+		//Adds the user as an object
 		mav.addObject("user", userService.getUser());
+		//Adds a post object we can use
 		mav.addObject("post", new PostModel());
 		return mav;
 	}
@@ -45,8 +54,11 @@ public class BlogController {
 		{
 			//returning the new blogpost as a view
 			service.createBlog(postModel);
+			//Saving the blog post
 			service.saveBlog(postModel);
+			//Setting the blog as an object
 			model.addAttribute("blog", service.getBlog());
+			//Returning the success screen
 			return "blogpostSuccess";
 		}
 	}

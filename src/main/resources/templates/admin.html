@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- 
+@Author Zac Almas & Austin Driver	
+	
+Page used for admin controls
+-->
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/adminTemplate">
+<head>
+	<meta charset="utf-8">
+	<link th:href="@{../styles/admin.css}" rel="stylesheet"/>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<!-- Table of all the blog posts -->
+		<div class="blog-posts">
+			<table>
+				<thead>
+					<tr>
+						<th>Post ID:</th>
+						<th>Author:</th>
+						<th>Title:</th>
+						<th>Body:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<div>
+						<tr th:each="post : ${blogs}">
+							<td>
+								<h5 th:text="${post.id}">id</h5>
+							</td>
+							<td>
+								<h5 th:text="${post.userid}">author</h5>
+							</td>
+							<td>
+								<h5 th:text="${post.title}">title</h5>
+							</td>
+							<td>
+								<h5 th:text="${post.body}">body</h5>
+							</td>
+							<td>
+								<a href="#">Edit</a>
+							</td>
+							<td>
+								<a th:href="@{/admin/function/delete/{id}(id=${post.id})}">Delete</a>
+							</td>
+						</tr>
+					</div>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

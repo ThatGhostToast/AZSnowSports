@@ -37,6 +37,30 @@ public class AdminController {
 		return mav;
 	}
 	
+	@RequestMapping("/function/edit/{id}")
+	public String editBlog(@PathVariable("id") long id, Model model)
+	{
+		//Getting the post model from the database and setting it as a model attribute
+		PostModel pm = new PostModel(id);
+		model.addAttribute("blog", service.findById(pm));
+		model.addAttribute("post", new PostModel());
+		
+		return "function/edit";
+	}
+	
+	@RequestMapping("/function/doEdit/{id}")
+	public String doEdit(@PathVariable("id") long id, Model model, PostModel post)
+	{
+		//Setting the post id to the id of the blog being updated
+		post.setId(id);
+		
+		if (service.updatePost(post))
+		{
+			return "function/editSuccess";		
+		}
+		return "function/editFailed";
+	}
+	
 	@RequestMapping("/function/delete/{id}")
 	public String deleteBlog(@PathVariable("id") long id, Model model)
 	{
@@ -58,8 +82,7 @@ public class AdminController {
 		{
 			return "function/deleteSuccess";	
 		} else {
-			return "";
+			return "function/deleteFail";
 		}
-		
 	}
 }

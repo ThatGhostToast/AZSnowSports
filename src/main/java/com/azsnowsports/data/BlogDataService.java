@@ -118,4 +118,28 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 		return false;
 	}
 
+	@Override
+	public boolean updateBlog(PostModel post) {
+		//SQL statement to update blogs in the database
+		String sql = "UPDATE `Posts` SET TITLE = ?, BODY = ? WHERE ID = ?";
+		try
+		{
+			//Update and execute the sql query
+			int rows = jdbcTemplateObject.update(sql, post.getTitle(), post.getBody(), post.getId());
+			//If there were any rows affected then it will return true
+			if (rows != 0)
+			{
+				return true;
+			} else {
+				return false;
+			}
+		}catch (Exception e)
+		{
+			//Something went wrong
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
 }

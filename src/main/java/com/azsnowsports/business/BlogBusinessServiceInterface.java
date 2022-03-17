@@ -37,7 +37,12 @@ public interface BlogBusinessServiceInterface
 	 * @return returns the post
 	 */
 	public PostModel findById(PostModel postId);
-	
+	/**
+	 * Method used for updating blog posts in the database
+	 * @param post Post being updated
+	 * @return Returns if the blog was updated
+	 */
+	public boolean updatePost(PostModel post);
 	/**
 	 * Method used to delete a post
 	 * @param post Post to delete

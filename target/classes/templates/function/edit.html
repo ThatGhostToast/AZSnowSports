@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- 
+@Author Zac Almas & Austin Driver	
+	
+Page used by admins to edit a blog post
+-->
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/adminTemplate">
+<head>
+	<meta charset="utf-8">
+	<link th:href="@{../styles/admin.css}" rel="stylesheet"/>
+	<link th:href="@{../styles/snowSportsCss.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="Content">
+			<!-- Prompts for the user -->
+			<div class="card2">
+				<div class="blogTitle">
+					<h2>Edit Blog Post</h2>
+					<h5>Enter the Blogs Title, and any content you would like.</h5>
+				</div>
+			</div>
+			<!-- Form for editing the blog post -->
+			<form class="postBlog" action="#" th:action="@{/admin/function/doEdit/{id}(id=${blog.id})}" th:object="${post}"
+				method="POST">
+				<ul>
+					<!-- Input the title -->
+					<li>
+						<label for="title">Title:</label>
+						<input type="text" id="name" th:field="*{title}" th:placeholder="${blog.title}">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						<h5 style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+						Title Error
+						</h5>
+					</li>
+					<!-- Input the blog body -->
+					<li>
+						<label for="body">Blog Below:</label>
+						<textarea type="text" id="body" th:field="*{body}" th:placeholder="${blog.body}" ></textarea>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						<h5 style="color: red" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">
+						Body Error
+						</h5>
+					</li>
+					<li class="button">
+						<button type="submit">Edit</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

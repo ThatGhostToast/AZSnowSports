@@ -62,7 +62,14 @@ public class BlogBusinessService implements BlogBusinessServiceInterface
 
 	@Override
 	public boolean deletePost(PostModel post) {
+		//If the blog was deleted it will return true
 		return access.deleteBlog(post);
+	}
+
+	@Override
+	public boolean updatePost(PostModel post) {
+		//If the blog was updated it will return true
+		return access.updateBlog(post);
 	}
 	
 }

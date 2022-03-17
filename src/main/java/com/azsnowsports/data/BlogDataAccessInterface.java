@@ -26,7 +26,12 @@ public interface BlogDataAccessInterface<T> {
 	 * @return Returns the blog
 	 */
 	public PostModel findBlogById(T postId);
-	
+	/**
+	 * Method used for updating blog posts
+	 * @param post Post being updated 
+	 * @return Returns if the update was successful
+	 */
+	public boolean updateBlog(T post);
 	/**
 	 * Method used to delete a blog from the database
 	 * @param post Post that's being deleted

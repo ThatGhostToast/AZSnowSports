@@ -40,7 +40,7 @@ Page used for admin controls
 								<h5 th:text="${post.body}">body</h5>
 							</td>
 							<td>
-								<a href="#">Edit</a>
+								<a th:href="@{/admin/function/edit/{id}(id=${post.id})}">Edit</a>
 							</td>
 							<td>
 								<a th:href="@{/admin/function/delete/{id}(id=${post.id})}">Delete</a>

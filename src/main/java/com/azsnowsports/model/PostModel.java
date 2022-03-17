@@ -63,6 +63,18 @@ public class PostModel {
 		this.title = "";
 		this.body = "";
 	}
+
+	/**
+	 * Constructor used for finding a post by id
+	 * @param id Id of the blog post we're searching
+	 */
+	public PostModel(long id)
+	{
+		this.id = id;
+		this.title = "";
+		this.body = "";
+		this.userid = "";
+	}
 	
 	/**
 	 * Method used to get the title of the blog

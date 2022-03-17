@@ -36,4 +36,11 @@ public interface UserBusinessServiceInterface {
 	 * @param user User being logged in 
 	 */
 	public void loginToUser(LoginModel user);
+	
+	/**
+	 * Method used to get a user from the database
+	 * @param user User we're looking for
+	 * @return returns the user
+	 */
+	public UserModel getUserByUsername(UserModel user);
 }

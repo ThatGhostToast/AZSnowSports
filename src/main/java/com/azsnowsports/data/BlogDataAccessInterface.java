@@ -2,6 +2,8 @@ package com.azsnowsports.data;
 
 import java.util.List;
 
+import com.azsnowsports.model.PostModel;
+
 /**
  * @author Zac Almas & Austin Driver
  *
@@ -18,5 +20,18 @@ public interface BlogDataAccessInterface<T> {
 	 * @param post Post being created
 	 */
 	public void createBlog(T post);
+	/**
+	 * Method used to get a blog post by its id
+	 * @param postId Id of the blog we're looking for
+	 * @return Returns the blog
+	 */
+	public PostModel findBlogById(T postId);
+	
+	/**
+	 * Method used to delete a blog from the database
+	 * @param post Post that's being deleted
+	 * @return returns if the delete happened
+	 */
+	public boolean deleteBlog(T post);
 	
 }

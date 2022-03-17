@@ -72,6 +72,9 @@ public class UserModel {
 		this.password = passwordVal;
 	}
 	
+	/**
+	 * Default constructor
+	 */
 	public UserModel()
 	{
 		this.firstName = "";
@@ -83,10 +86,29 @@ public class UserModel {
 		this.password = "";
 	}
 	
+	/**
+	 * Constructor used for logging in
+	 * @param login Login model to get username and password
+	 */
 	public UserModel(LoginModel login)
 	{
 		this.username = login.getUsername();
 		this.password = login.getPassword();
+		this.firstName = "";
+		this.lastName = "";
+		this.email = "";
+		this.address = "";
+		this.phoneNumber = 0;
+	}
+	
+	/**
+	 * Constructor used to get a user by just the username
+	 * @param name Username
+	 */
+	public UserModel(String name)
+	{
+		this.username = name;
+		this.password = "";
 		this.firstName = "";
 		this.lastName = "";
 		this.email = "";

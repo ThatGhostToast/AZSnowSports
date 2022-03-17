@@ -33,4 +33,5 @@ public interface UserDataAccessInterface <T>{
 	 * @return Returns if the user is an Admin or not
 	 */
 	public boolean isAdmin(T user);
+	
 }

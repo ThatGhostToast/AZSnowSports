@@ -73,4 +73,49 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 		
 	}
 
+	@Override
+	public PostModel findBlogById(PostModel postId) {
+		//SQL statement used to get the blog from the database
+		String sql = "SELECT * FROM `Posts` WHERE ID = " + postId.getId();
+		try
+		{
+			//Execute sql Query and loop over results
+			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql);
+			if (srs.next())
+			{
+				//Adding post from the database and returning
+				PostModel post = new PostModel(srs.getLong("ID"), srs.getString("TITLE"), srs.getString("BODY"), srs.getString("AUTHOR"));
+				return post;
+			}
+		}catch (Exception e)
+		{
+			//There's a problem
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	@Override
+	public boolean deleteBlog(PostModel post) {
+		//SQL statement used to delete data from the database
+		String sql = "DELETE FROM `Posts` WHERE ID = ?";
+		try
+		{
+			//Execute sql query
+			int rows = jdbcTemplateObject.update(sql, post.getId());
+			if (rows != 0)
+			{
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e)
+		{
+			//Something went wrong
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

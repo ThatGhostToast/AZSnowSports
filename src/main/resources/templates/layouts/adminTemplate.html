@@ -2,14 +2,14 @@
 <!-- 
 @Author Zac Almas & Austin Driver	
 	
-Template used for the pages when the user is signed in
+Template used for the admin controls 
 -->
 <html xmlns:th=”http://www.thymeleaf.org”>
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>AZSnowSports</title>
+	<title>AZSnowSports - Admin</title>
 	<meta name="description" content="The landing page for AZSnowSports">
 	<link rel="stylesheet" type="text/css" href="http://localhost:8080/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
@@ -28,11 +28,7 @@ Template used for the pages when the user is signed in
 							src="http://localhost:8080/assets/images/AZSnowSports-logos_transparent_Long.png"
 							height="50" weight="50"></a><button data-bs-toggle="collapse" class="navbar-toggler"
 						data-bs-target="#navcol-1"></button>
-						<div class="collapse navbar-collapse" id=navcol-2><a class="btn btn-primary ms-auto" role="button" th:href="@{/createBlog/}">Make a Post</a></div>
-					<div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ms-auto" role="button"
-							th:href="temp.html">Account</a></div>
-					<div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ms-auto" role="button"
-							th:href="@{/admin/}">Admin</a></div>
+						<div class="collapse navbar-collapse" id=navcol-2><a class="btn btn-primary ms-auto" role="button" th:href="@{/timeline/}">Return</a></div>
 				</div>
 			</nav>
 		</div>

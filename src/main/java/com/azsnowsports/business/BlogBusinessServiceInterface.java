@@ -31,5 +31,18 @@ public interface BlogBusinessServiceInterface
 	 * @param post Post being added to the database
 	 */
 	public void createBlog(PostModel post);
+	/**
+	 * Method used to find a post by its id
+	 * @param postId Id of the post being searched
+	 * @return returns the post
+	 */
+	public PostModel findById(PostModel postId);
+	
+	/**
+	 * Method used to delete a post
+	 * @param post Post to delete
+	 * @return Returns if the post was deleted
+	 */
+	public boolean deletePost(PostModel post);
 
 }

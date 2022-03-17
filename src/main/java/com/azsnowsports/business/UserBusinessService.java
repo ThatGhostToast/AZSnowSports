@@ -62,5 +62,10 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 		//Setting the user to the user found in the database
 		setUser(service.findByUsername(userToSearch));
 	}
+
+	@Override
+	public UserModel getUserByUsername(UserModel user) {
+		return service.findByUsername(user);
+	}
 	
 }

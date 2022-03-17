@@ -52,5 +52,17 @@ public class BlogBusinessService implements BlogBusinessServiceInterface
 		//Calling the data access layer to add a blog into the database
 		access.createBlog(post);	
 	}
+
+	@Override
+	public PostModel findById(PostModel postId) {
+		//Getting the post from the database
+		PostModel post = access.findBlogById(postId);
+		return post;
+	}
+
+	@Override
+	public boolean deletePost(PostModel post) {
+		return access.deleteBlog(post);
+	}
 	
 }

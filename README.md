@@ -1,7 +1,7 @@
 <img src="https://github.com/ThatGhostToast/AZSnowSports/blob/main/src/main/resources/static/assets/images/AZSnowSports-logos_white.png" width="300" height="300"> </br>
 # AZSnowSports
 ## The first ever social media designed for people who love to hit the slopes!
-> Last Updated: 3/16/22</br>
+> Last Updated: 3/20/22</br>
 > Authors: Austin Driver, Zac Almas
 </br>
 

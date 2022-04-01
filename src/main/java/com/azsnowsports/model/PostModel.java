@@ -56,6 +56,18 @@ public class PostModel {
 	}
 	
 	/**
+	 * Constructor used by the rest service. It takes in an id and nothing else
+	 * @param id Id of the blog
+	 */
+	public PostModel(String id)
+	{
+		this.id = Long.parseLong(id);
+		this.title = "";
+		this.body = "";
+		this.userid = "";
+	}
+	
+	/**
 	 * Default constructor
 	 */
 	public PostModel()
@@ -63,6 +75,7 @@ public class PostModel {
 		this.title = "";
 		this.body = "";
 	}
+	
 
 	/**
 	 * Constructor used for finding a post by id

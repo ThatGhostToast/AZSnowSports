@@ -42,6 +42,7 @@ public class AdminController {
 	{
 		//Getting the post model from the database and setting it as a model attribute
 		PostModel pm = new PostModel(id);
+		//Adding in the attributes
 		model.addAttribute("blog", service.findById(pm));
 		model.addAttribute("post", new PostModel());
 		
@@ -54,10 +55,12 @@ public class AdminController {
 		//Setting the post id to the id of the blog being updated
 		post.setId(id);
 		
+		//If the post was updated it will go to the success page
 		if (service.updatePost(post))
 		{
 			return "function/editSuccess";		
 		}
+		//If the post was not updated then it will redirect to the failed page
 		return "function/editFailed";
 	}
 	
@@ -68,6 +71,7 @@ public class AdminController {
 		PostModel pm = new PostModel(id);
 		model.addAttribute("blog", service.findById(pm));
 		
+		//Redirecting to the delete function page
 		return "function/delete";
 	}
 	
@@ -80,8 +84,10 @@ public class AdminController {
 		//Deleting the post
 		if (service.deletePost(pm))
 		{
+			//If the post was successfully deleted then it will redirect the user to the success page
 			return "function/deleteSuccess";	
 		} else {
+			//If the post was not deleted it will show the delete failed page
 			return "function/deleteFail";
 		}
 	}

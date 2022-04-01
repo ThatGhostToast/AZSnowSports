@@ -41,6 +41,7 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql);
 			while (srs.next())
 			{
+				//Add results to the post list
 				posts.add(new PostModel(srs.getLong("ID"), srs.getString("TITLE"), srs.getString("BODY"), srs.getString("AUTHOR")));
 			}
 			return posts;
@@ -106,8 +107,10 @@ public class BlogDataService implements BlogDataAccessInterface<PostModel> {
 			int rows = jdbcTemplateObject.update(sql, post.getId());
 			if (rows != 0)
 			{
+				//If the rows affected are higher than 1 that means a post was deleted so return true
 				return true;
 			} else {
+				//If the rows affected are 0 then nothing happened so nothing was deleted and return false
 				return false;
 			}
 		} catch (Exception e)

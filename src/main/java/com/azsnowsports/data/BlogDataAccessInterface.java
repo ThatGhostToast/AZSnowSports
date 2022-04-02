@@ -5,7 +5,7 @@ import java.util.List;
 import com.azsnowsports.model.PostModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Interface used for the blog data access
  */

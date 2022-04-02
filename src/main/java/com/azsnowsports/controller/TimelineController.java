@@ -10,7 +10,7 @@ import com.azsnowsports.business.BlogBusinessService;
 import com.azsnowsports.model.UserModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  * 
  *	Controller is used for the timeline of the application.
  */
@@ -24,6 +24,13 @@ public class TimelineController {
 	@Autowired
 	private BlogBusinessService service;
 
+	/**
+	 * Method used for displaying the timeline
+	 * 
+	 * @param usrModel User that's signed in
+	 * @param model Thymeleaf model
+	 * @return Returns the timeline page
+	 */
 	@GetMapping("/")
 	public ModelAndView display(UserModel usrModel, Model model) {
 		//Create a model and view for our timeline 

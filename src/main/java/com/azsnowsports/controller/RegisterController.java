@@ -14,7 +14,7 @@ import com.azsnowsports.business.UserBusinessServiceInterface;
 import com.azsnowsports.model.UserModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  * 
  * Controller used for registration pages
  */
@@ -27,6 +27,12 @@ public class RegisterController {
 	@Autowired
 	private UserBusinessServiceInterface service;
 	
+	/**
+	 * Method used for displaying the register page
+	 * 
+	 * @param model Thymeleaf model
+	 * @return Returns the register form
+	 */
 	@GetMapping("/")
 	public String display(Model model)
 	{
@@ -38,6 +44,14 @@ public class RegisterController {
 		return "register";
 	}
 	
+	/**
+	 * Method used to register the user
+	 * 
+	 * @param userModel User thats being registered
+	 * @param bindingResult Binding result
+	 * @param model Thymeleaf model
+	 * @return Returns the register success page if successful or the form again if there were errors
+	 */
 	@PostMapping("/doRegister")
 	public String doRegister(@Valid UserModel userModel, BindingResult bindingResult, Model model)
 	{

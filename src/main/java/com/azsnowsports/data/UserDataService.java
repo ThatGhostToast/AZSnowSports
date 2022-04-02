@@ -9,18 +9,28 @@ import org.springframework.stereotype.Service;
 import com.azsnowsports.model.UserModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Data service used for user data access
  */
 @Service
 public class UserDataService implements UserDataAccessInterface<UserModel>{
+	/**
+	 * Datasource used for the connection
+	 */
 	@SuppressWarnings("unused")
 	@Autowired
 	private DataSource datasource;
+	/**
+	 * JDBC Object used to execute sql queries
+	 */
 	private JdbcTemplate jdbcTemplateObject;
 	
-	//Constructor 
+	/**
+	 * Constructor
+	 * 
+	 * @param dataSource Datasource for connection
+	 */
 	public UserDataService(DataSource dataSource)
 	{
 		this.datasource = dataSource;

@@ -11,7 +11,7 @@ import com.azsnowsports.business.BlogBusinessServiceInterface;
 import com.azsnowsports.model.PostModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  * 
  *	Controller is used for the admin page
  */
@@ -24,6 +24,12 @@ public class AdminController {
 	@Autowired
 	private BlogBusinessServiceInterface service;
 	
+	/**
+	 * Method used to display the admin page
+	 * 
+	 * @param model Thymeleaf model
+	 * @return Returns the admin control view
+	 */
 	@GetMapping("/")
 	public ModelAndView display(Model model)
 	{
@@ -37,6 +43,13 @@ public class AdminController {
 		return mav;
 	}
 	
+	/**
+	 * Method used for displaying the edit blog form
+	 * 
+	 * @param id Id of the blog being edited
+	 * @param model Thymeleaf model
+	 * @return Returns the edit blog form
+	 */
 	@RequestMapping("/function/edit/{id}")
 	public String editBlog(@PathVariable("id") long id, Model model)
 	{
@@ -49,6 +62,14 @@ public class AdminController {
 		return "function/edit";
 	}
 	
+	/**
+	 * Method used to perform edits on a blog
+	 * 
+	 * @param id Id of the blog being edited
+	 * @param model Thymeleaf model
+	 * @param post Updated post content that's replacing the old content
+	 * @return Returns either success or failed screens
+	 */
 	@RequestMapping("/function/doEdit/{id}")
 	public String doEdit(@PathVariable("id") long id, Model model, PostModel post)
 	{
@@ -64,6 +85,13 @@ public class AdminController {
 		return "function/editFailed";
 	}
 	
+	/**
+	 * Method used to display the delete blog confirm
+	 * 
+	 * @param id Id of the blog being deleted
+	 * @param model Thymeleaf model
+	 * @return Returns the delete blog confirm page
+	 */
 	@RequestMapping("/function/delete/{id}")
 	public String deleteBlog(@PathVariable("id") long id, Model model)
 	{
@@ -75,6 +103,13 @@ public class AdminController {
 		return "function/delete";
 	}
 	
+	/**
+	 * Method used to delete a blog from the database
+	 * 
+	 * @param id Id of the blog being deleted
+	 * @param model Thymeleaf model
+	 * @return Returns either success or delete page
+	 */
 	@RequestMapping("/function/doDelete/{id}")
 	public String doDelete(@PathVariable("id") long id, Model model)
 	{

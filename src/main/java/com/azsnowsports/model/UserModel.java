@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Model used for users
  */
@@ -56,7 +56,7 @@ public class UserModel {
 	 * @param lastNameVal The last name of the user
 	 * @param emailVal The email of the user
 	 * @param addressVal The address of the user
-	 * @param phoneNumber The phone number of the user
+	 * @param phoneNumberVal The phone number of the user
 	 * @param usernameVal The username for the user
 	 * @param passwordVal The password for the user
 	 */

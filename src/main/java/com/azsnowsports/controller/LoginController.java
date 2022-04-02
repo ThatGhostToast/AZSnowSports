@@ -14,7 +14,7 @@ import com.azsnowsports.business.UserBusinessServiceInterface;
 import com.azsnowsports.model.LoginModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Controller used for login pages
  */
@@ -32,6 +32,12 @@ public class LoginController {
 	@Autowired
 	private BlogBusinessServiceInterface bservice;
 	
+	/**
+	 * Method used for displaying the login form
+	 * 
+	 * @param model Thymeleaf model
+	 * @return Returns the login form
+	 */
 	@GetMapping("/")
 	public String display(Model model)
 	{
@@ -42,6 +48,15 @@ public class LoginController {
 		return "login";
 	}
 	
+	/**
+	 * Method used for logging the user in
+	 * 
+	 * @param loginModel Model containing the information the user entered in the form
+	 * @param bindingResult Binding result
+	 * @param model Thymeleaf model
+	 * @param redirAttrs Attributes being redirected
+	 * @return Returns either the timeline if successful or the login form again if there are errors
+	 */
 	@PostMapping("/doLogin")
 	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model, RedirectAttributes redirAttrs)
 	{

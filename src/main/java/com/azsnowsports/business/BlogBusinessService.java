@@ -6,7 +6,7 @@ import com.azsnowsports.data.BlogDataAccessInterface;
 import com.azsnowsports.model.PostModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Business service used for the blog posts
  */

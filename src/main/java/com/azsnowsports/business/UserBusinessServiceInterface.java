@@ -4,7 +4,7 @@ import com.azsnowsports.model.LoginModel;
 import com.azsnowsports.model.UserModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Interface used for the user business service
  */

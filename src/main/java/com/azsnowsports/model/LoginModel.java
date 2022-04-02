@@ -4,16 +4,22 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Model used for logging in
  */
 public class LoginModel {
 	//Define Variables
+	/**
+	 * Users username
+	 */
 	@NotNull(message="Username is a required field.")
 	@Size(min = 1, max = 32, message="Username must be between 1 and 32 characters.")
 	private String username;
 	
+	/**
+	 * Users password
+	 */
 	@NotNull(message="Password is a required field.")
 	@Size(min = 1, max = 32, message="Password must be between 1 and 32 characters.")
 	private String password;

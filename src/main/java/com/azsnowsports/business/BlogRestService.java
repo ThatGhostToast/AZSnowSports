@@ -14,9 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.azsnowsports.model.BlogList;
 import com.azsnowsports.model.PostModel;
 
+/**
+ * @author Zac Almas and Austin Driver
+ *
+ * Interface used for the blog business service
+ */
 @RestController
 @RequestMapping("/service")
 public class BlogRestService {
+	/**
+	 * Interface service connection to use methods
+	 */
 	@Autowired
 	private BlogBusinessServiceInterface service;
 

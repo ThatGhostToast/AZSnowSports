@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Model used for posts
  */
@@ -32,6 +32,7 @@ public class PostModel {
 	 * Constructor used to add a blog post (Doesn't require ID)
 	 * @param titleVal Title of the blog
 	 * @param bodyVal Content of the blog
+	 * @param userId Id of the user making the post
 	 */
 	public PostModel(String titleVal, String bodyVal, String userId)
 	{

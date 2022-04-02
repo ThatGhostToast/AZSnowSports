@@ -6,10 +6,17 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * @author Zac Almas and Austin Driver
+ *
+ * Interface used for the blog business service
+ */
 @XmlRootElement(name = "blogs")
 public class BlogList {
 
-	// List for holding all of the orders
+	/**
+	 * List for holding all of the blogs
+	 */
 	private List<PostModel> blogs = new ArrayList<PostModel>();
 
 	/**

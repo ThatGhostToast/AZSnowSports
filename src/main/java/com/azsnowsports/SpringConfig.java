@@ -7,6 +7,11 @@ import com.azsnowsports.business.BlogBusinessServiceInterface;
 import com.azsnowsports.business.UserBusinessService;
 import com.azsnowsports.business.UserBusinessServiceInterface;
 
+/**
+ * @author Zac Almas and Austin Driver
+ * 
+ * Configuration file for the application
+ */
 @Configuration
 public class SpringConfig {
 	/**

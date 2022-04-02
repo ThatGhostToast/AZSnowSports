@@ -14,7 +14,7 @@ import com.azsnowsports.business.UserBusinessServiceInterface;
 import com.azsnowsports.model.PostModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  * 
  *	Controller is used for creating a blog.
  */
@@ -32,6 +32,12 @@ public class BlogController {
 	@Autowired
 	private UserBusinessServiceInterface userService;
 
+	/**
+	 * Method used for displaying the blog form
+	 * 
+	 * @param model Thymeleaf model
+	 * @return Returns the form to create a blog
+	 */
 	@GetMapping("/")
 	public ModelAndView display(Model model) {
 		//Model and View used to help our blog display
@@ -43,6 +49,14 @@ public class BlogController {
 		return mav;
 	}
 	
+	/**
+	 * Method used for creating a blog post that saves to the database
+	 * 
+	 * @param postModel Post being created
+	 * @param br The binding result
+	 * @param model Thymeleaf model
+	 * @return Returns either the success page or returns them to their post if there is an error
+	 */
 	@PostMapping("/doBlogPost")
 	public String doBlogPost(@Valid PostModel postModel, BindingResult br, Model model) {
 		// Check for validation errors

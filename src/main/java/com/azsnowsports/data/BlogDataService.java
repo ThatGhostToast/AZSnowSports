@@ -11,24 +11,33 @@ import org.springframework.stereotype.Service;
 import com.azsnowsports.model.PostModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Data service used for blog data access
  */
 @SuppressWarnings({"unused"})
 @Service
 public class BlogDataService implements BlogDataAccessInterface<PostModel> {
+	/**
+	 * Datasource for connecting to the database
+	 */
 	@Autowired
 	private DataSource datasource;
+	/**
+	 * JDBC object used for executing sql statements 
+	 */
 	private JdbcTemplate jdbcTemplateObject;
 	
-	//Constructor
+	/**
+	 * Constructor
+	 * @param dataSource Datasource for our connection
+	 */
 	public BlogDataService(DataSource dataSource)
 	{
 		this.datasource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
-	
+
 	@Override
 	public List<PostModel> getAllBlogs() {
 		//SQL statement used to get the posts from the database

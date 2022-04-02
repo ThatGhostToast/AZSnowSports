@@ -3,7 +3,7 @@ package com.azsnowsports.data;
 import com.azsnowsports.model.UserModel;
 
 /**
- * @author Zac Almas & Austin Driver
+ * @author Zac Almas and Austin Driver
  *
  * Interface used for the user data access
  */

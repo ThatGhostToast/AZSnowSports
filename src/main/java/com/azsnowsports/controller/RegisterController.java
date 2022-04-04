@@ -3,6 +3,7 @@ package com.azsnowsports.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,12 @@ public class RegisterController {
 	 */
 	@Autowired
 	private UserBusinessServiceInterface service;
+	
+	/**
+	 * Private autowired attribute to use the password encoder to encode the users password
+	 */
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	/**
 	 * Method used for displaying the register page
@@ -62,6 +69,9 @@ public class RegisterController {
 			model.addAttribute("title", "Register Form");
 			return "register";
 		}
+		
+		userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
+		
 		//Creating the user in the user business service
 		service.createUser(userModel);
 		//Return success screen

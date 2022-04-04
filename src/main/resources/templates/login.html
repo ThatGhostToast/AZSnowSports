@@ -18,8 +18,11 @@ Page used for logging in
 			<div class="container-login100" style="background-image: url(&quot;http://localhost:8080/assets/images/arnur-turpakpayev-KXXBVqAjBaA-unsplash.jpg&quot;);">
 				<div class="wrap-login100">
 					<!-- Login Form -->
-					<form class="login100-form validate-form" action="#" th:action="@{doLogin}"
-						th:object="${loginModel}" method="POST">
+					<div th:if="${param.error}">
+						Invalid Username or Password
+					</div>
+					<form class="login100-form validate-form" th:action="@{/login}"
+						 method="POST">
 						<!-- AZSnowSports Logo -->
 						<span class="login100-form-logo">
 							<img src="http://localhost:8080/assets/images/Logo2.png" style="width: 80px; height: 80px">
@@ -32,19 +35,13 @@ Page used for logging in
 
 						<!-- Username input in the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter username">
-							<input class="input100" type="text" th:field="*{username}" placeholder="Username">
+							<input class="input100" type="text" name="username" id="username" placeholder="Username" required>
 							<span class="focus-input100" data-placeholder="&#xf207;"></span>
-							<h5 style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
-								Username
-								Error</h5>
 						</div>
 						<!-- Password input in the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter password">
-							<input class="input100" type="password" th:field="*{password}" placeholder="Password">
+							<input class="input100" type="password" name="password" id="password" placeholder="Password" required>
 							<span class="focus-input100" data-placeholder="&#xf191;"></span>
-							<h5 style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
-								Password
-								Error</h5>
 						</div>
 						<!-- Remember me checkbox (Doesn't actually work yet') -->
 						<div class="contact100-form-checkbox">
@@ -54,7 +51,6 @@ Page used for logging in
 							</label>
 						</div>
 						<!-- Form submit -->
-						<div class="container-login100-form-btn">
 							<button class="login100-form-btn">
 								Login
 							</button>

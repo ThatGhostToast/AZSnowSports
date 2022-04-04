@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.azsnowsports.business.BlogBusinessServiceInterface;
 import com.azsnowsports.business.UserBusinessServiceInterface;
+import com.azsnowsports.data.UserDataService;
 import com.azsnowsports.model.PostModel;
+import com.azsnowsports.model.UserModel;
 
 /**
  * @author Zac Almas and Austin Driver
@@ -43,7 +45,7 @@ public class BlogController {
 		//Model and View used to help our blog display
 		ModelAndView mav = new ModelAndView("createBlog");
 		//Adds the user as an object
-		mav.addObject("user", userService.getUser());
+		mav.addObject("user", userService.getUserByUsername(new UserModel(UserDataService.currentUserUsername)));
 		//Adds a post object we can use
 		mav.addObject("post", new PostModel());
 		return mav;

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.azsnowsports.business.BlogBusinessService;
+import com.azsnowsports.business.UserBusinessService;
+import com.azsnowsports.data.UserDataService;
 import com.azsnowsports.model.UserModel;
 
 /**
@@ -23,6 +25,12 @@ public class TimelineController {
 	 */
 	@Autowired
 	private BlogBusinessService service;
+	
+	/**
+	 * Private autowired attribute to access the user business service
+	 */
+	@Autowired
+	private UserBusinessService uservice;
 
 	/**
 	 * Method used for displaying the timeline
@@ -36,7 +44,7 @@ public class TimelineController {
 		//Create a model and view for our timeline 
 		ModelAndView mav = new ModelAndView("timeline");
 		//Adding a user model as an object to be used
-		mav.addObject("user", usrModel);
+		mav.addObject("user", uservice.getUserByUsername(new UserModel(UserDataService.currentUserUsername)));
 		//Adding all the blogs as objects to be used
 		mav.addObject("blog", service.getAllBlogs());
 		//Return the model and view

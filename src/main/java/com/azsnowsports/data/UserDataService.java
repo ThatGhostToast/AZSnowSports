@@ -26,6 +26,13 @@ public class UserDataService implements UserDataAccessInterface<UserModel>{
 	 */
 	private JdbcTemplate jdbcTemplateObject;
 	
+	
+	/**
+	 * Temporary variable used to get the user's username around the site
+	 * This is going to be removed and replaced with a session variable
+	 */
+	public static String currentUserUsername;
+	
 	/**
 	 * Constructor
 	 * 

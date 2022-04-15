@@ -2,8 +2,16 @@ package com.azsnowsports.business;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
 import com.azsnowsports.data.BlogDataAccessInterface;
 import com.azsnowsports.model.PostModel;
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+import com.netflix.discovery.shared.Application;
 
 /**
  * @author Zac Almas and Austin Driver
@@ -13,6 +21,9 @@ import com.azsnowsports.model.PostModel;
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class BlogBusinessService implements BlogBusinessServiceInterface
 {
+	@Autowired
+	private EurekaClient eurekaClient;
+	
 	/**
 	 * Current blog
 	 */
@@ -42,9 +53,35 @@ public class BlogBusinessService implements BlogBusinessServiceInterface
 
 	@Override
 	public List<PostModel> getAllBlogs() {
-		//Calling the data access layer to get all blogs from the database
-		totalPosts = access.getAllBlogs();
+		Application application = eurekaClient.getApplication("blog-service");
+		InstanceInfo instanceInfo = application.getInstances().get(0);
+		String hostname = instanceInfo.getHostName();
+		int port = instanceInfo.getPort();
+		
+		String url = "http://" + hostname + ":" + port + "/service/blogs";
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<List<PostModel>> rateResponse = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<List<PostModel>>() {});
+		totalPosts = rateResponse.getBody();
+		
 		return totalPosts;
+	}
+	
+	//MAY BE DELETED
+	//TESTING POSTING A BLOG
+	public void createBlogAPI(PostModel post) {	
+		Application application = eurekaClient.getApplication("blog-service");
+		InstanceInfo instanceInfo = application.getInstances().get(0);
+		String hostname = instanceInfo.getHostName();
+		int port = instanceInfo.getPort();
+		
+		String url = "http://" + hostname + ":" + port + "/service/createBlog";
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<PostModel> rateResponse = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<PostModel>() {});
+		if (rateResponse.getBody() == null)
+		{
+			System.out.println("Post Creation Failed");
+		}
+
 	}
 
 	@Override

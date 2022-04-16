@@ -21,6 +21,9 @@ import com.netflix.discovery.shared.Application;
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class BlogBusinessService implements BlogBusinessServiceInterface
 {
+	/**
+	 * Private class variable for the eureka client
+	 */
 	@Autowired
 	private EurekaClient eurekaClient;
 	
@@ -53,37 +56,28 @@ public class BlogBusinessService implements BlogBusinessServiceInterface
 
 	@Override
 	public List<PostModel> getAllBlogs() {
+		//Getting the eureka client API
 		Application application = eurekaClient.getApplication("blog-service");
+		//Getting the instance of the application
 		InstanceInfo instanceInfo = application.getInstances().get(0);
+		//Setting the host name of the API
 		String hostname = instanceInfo.getHostName();
+		//Setting the Port of the API
 		int port = instanceInfo.getPort();
 		
+		//Constructing the url from our host name and port
 		String url = "http://" + hostname + ":" + port + "/service/blogs";
+		//Initializing a new rest template
 		RestTemplate restTemplate = new RestTemplate();
+		//Getting the response from the API
 		ResponseEntity<List<PostModel>> rateResponse = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<List<PostModel>>() {});
+		//Populating total posts with the API response
 		totalPosts = rateResponse.getBody();
 		
+		//Returning the posts
 		return totalPosts;
 	}
 	
-	//MAY BE DELETED
-	//TESTING POSTING A BLOG
-	public void createBlogAPI(PostModel post) {	
-		Application application = eurekaClient.getApplication("blog-service");
-		InstanceInfo instanceInfo = application.getInstances().get(0);
-		String hostname = instanceInfo.getHostName();
-		int port = instanceInfo.getPort();
-		
-		String url = "http://" + hostname + ":" + port + "/service/createBlog";
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<PostModel> rateResponse = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<PostModel>() {});
-		if (rateResponse.getBody() == null)
-		{
-			System.out.println("Post Creation Failed");
-		}
-
-	}
-
 	@Override
 	public void createBlog(PostModel post) {
 		//Calling the data access layer to add a blog into the database

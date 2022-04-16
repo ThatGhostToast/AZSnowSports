@@ -11,3 +11,5 @@ timeline
 mav
 thymeleaf
 datasource
+eureka
+url

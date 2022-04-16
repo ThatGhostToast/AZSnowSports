@@ -15,14 +15,7 @@ Application's home page before signing in
 <body>
 	<div layout:fragment="content">
 		<!-- Navbar -->
-		<nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-			<div class="container"><a class="navbar-brand" href="#"><img
-						src="http://localhost:8080/assets/images/AZSnowSports-logos_transparent_Long.png" height="50" weight="50"></a><button
-					data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
-				<div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ms-auto" role="button"
-						th:href="@{/login/}">Sign In</a></div>
-			</div>
-		</nav>
+		<div th:replace="layouts/defaultNav"/>
 
 		<!-- Header section (Big picture and welcome message) -->
 		<header class="text-center text-white masthead"

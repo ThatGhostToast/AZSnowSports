@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th=”http://www.thymeleaf.org”>
+<nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+	<div class="container"><a class="navbar-brand" href="#"><img
+				src="http://localhost:8080/assets/images/AZSnowSports-logos_transparent_Long.png" height="50"
+				weight="50"></a><button data-bs-toggle="collapse" class="navbar-toggler"
+			data-bs-target="#navcol-1"></button>
+		<ul class="collapse navbar-collapse" id=navcol-1>
+			<li><a class="btn btn-primary ms-auto" role="button" th:href="@{/createBlog/}">Make a Post</a></li>
+		</ul>
+		<ul class="collapse navbar-collapse nav navbar-nav navbar-right" id="navcol-2">
+			<li><a class="btn btn-primary ms-auto" role="button" th:href="@{/admin/}">Admin</a></li>
+			<li><a class="btn btn-primary ms-auto" role="button" th:href="temp.html">Account</a></li>
+		</ul>
+	</div>
+</nav>
+</html>

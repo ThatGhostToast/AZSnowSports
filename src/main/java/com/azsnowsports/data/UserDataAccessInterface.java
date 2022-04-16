@@ -34,4 +34,11 @@ public interface UserDataAccessInterface <T>{
 	 */
 	public boolean isAdmin(T user);
 	
+	/**
+	 * Method used to get the users role. (Temporary until we can update the models)
+	 * @param user User being checked
+	 * @return Returns the users role
+	 */
+	public String getUsersRole(T user);
+	
 }

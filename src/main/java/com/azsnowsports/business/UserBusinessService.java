@@ -100,5 +100,17 @@ public class UserBusinessService implements UserBusinessServiceInterface, UserDe
 			throw new UsernameNotFoundException("Username was not found");
 		}
 	}
+
+	@Override
+	public String getUserRole(UserModel user) {
+		String role = service.getUsersRole(user);
+		
+		if (role == null)
+		{
+			return "User";
+		} else {
+			return role;
+		}
+	}
 	
 }

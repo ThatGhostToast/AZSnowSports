@@ -16,6 +16,9 @@ Page used to display that the blog post was successfully posted
 
 <body>
 	<div layout:fragment="content">
+		<!-- Navbar -->
+		<div th:replace="layouts/returnNav"/>
+		
 		<!-- Content card used to hold the data from the blog post -->
 		<div class="Content">
 			<div class="card2">
@@ -30,8 +33,6 @@ Page used to display that the blog post was successfully posted
 				  <h5 th:text="${blog.userid}">user</h5>
 		      </div>
 		    </div> 
-		    <!-- Button to return to the timeline -->
-		    <a th:href="@{/timeline/}" class="btn btn-primary ms-auto">Return to timeline</a>
 		</div>
 	</div>
 </body>

@@ -43,4 +43,11 @@ public interface UserBusinessServiceInterface {
 	 * @return returns the user
 	 */
 	public UserModel getUserByUsername(UserModel user);
+	
+	/**
+	 * Method used to get the users role. (Temporary until we can update the models)
+	 * @param user User being checked
+	 * @return Returns the users role
+	 */
+	public String getUserRole(UserModel user);
 }

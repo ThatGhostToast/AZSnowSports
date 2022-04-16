@@ -45,6 +45,8 @@ public class TimelineController {
 		ModelAndView mav = new ModelAndView("timeline");
 		//Adding a user model as an object to be used
 		mav.addObject("user", uservice.getUserByUsername(new UserModel(UserDataService.currentUserUsername)));
+		//Adding a users role to be used
+		mav.addObject("role", uservice.getUserRole(new UserModel(UserDataService.currentUserUsername)));
 		//Adding all the blogs as objects to be used
 		mav.addObject("blog", service.getAllBlogs());
 		//Return the model and view

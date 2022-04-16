@@ -15,8 +15,11 @@ Timeline page used to display all the blogs after signing in
 
 <body>
 
-</body>
 <div layout:fragment="content">
+	<!-- Navbars -->
+	<span th:if=${role=="User"}><div th:replace="layouts/signedInNav"></div></span>
+	<span th:if=${role=="Admin"}><div th:replace="layouts/adminNav"></div></span>
+	
 	<!-- Welcoming the user -->
 	<div class="page-content">
 		<h3>Welcome</h3>
@@ -40,5 +43,6 @@ Timeline page used to display all the blogs after signing in
 		</div>
 	</tbody>
 </div>
+</body>
 
 </html>

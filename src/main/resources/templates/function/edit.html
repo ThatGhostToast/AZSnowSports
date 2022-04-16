@@ -14,6 +14,9 @@ Page used by admins to edit a blog post
 
 <body>
 	<div layout:fragment="content">
+		<!-- Navbar -->
+		<div th:replace="layouts/returnNav"/>
+		
 		<div class="Content">
 			<!-- Prompts for the user -->
 			<div class="card2">
@@ -45,7 +48,7 @@ Page used by admins to edit a blog post
 						</h5>
 					</li>
 					<li class="button">
-						<button type="submit">Edit</button>
+						<button class="btn btn-primary" type="submit">Edit</button>
 					</li>
 				</ul>
 			</form>

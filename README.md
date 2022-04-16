@@ -12,7 +12,7 @@ We designed AZSnowSports with skiers and snowboarders in mind. Here you can post
 
 <img src= https://github.com/ThatGhostToast/AZSnowSports/blob/main/readme%20assets/loginScreenshot.png>
 
-<img src="ScreenShotOfTimeline.png">
+<img src= https://github.com/ThatGhostToast/AZSnowSports/blob/main/readme%20assets/TimelineScreenshot.png>
 
 ### Database
 Inside the github you should find a file labeled AZSnowSports.sql this is the database. You need to import this file into your SQL server before running AZSnowSports. If you don't have access to a SQL server then you can use the server that [MAMP][mamp] provides. Download [MAMP][mamp] and run the server. Through the web start button you can access PHPMyAdmin which is where you can import the SQL file. Please note you must have [MAMP][mamp] running everytime you start AZSnowSports
@@ -25,6 +25,6 @@ Inside the github their are zip files labeled BlogAPI, UserAPI, and EurekaServer
 * Users are now pulled from an API
 
 ### Pending Bugs
-* Navbar buttons change position when you sign in
+* Admin navbar buttons have a strange positioning
 
 [mamp]: https://www.mamp.info/en/downloads/

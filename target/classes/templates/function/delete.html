@@ -8,11 +8,14 @@ Page used by admins to make sure they want to delete a post
 	layout:decorate="layouts/adminTemplate">
 <head>
 	<meta charset="utf-8">
-	<link th:href="@{../styles/admin.css}" rel="stylesheet"/>
+	<link th:href="@{/styles/admin.css}" rel="stylesheet"/>
 </head>
 
 <body>
 	<div layout:fragment="content">
+		<!-- Navbar -->
+		<div th:replace="layouts/returnNav"/>
+		
 		<h1 style="text-align: center;">Are you sure you want to delete this post?</h1>
 		<br />
 		<div style="border: 1px solid black; margin:auto; padding:1px; width:50%;">

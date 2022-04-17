@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- 
+@Author Zac Almas & Austin Driver	
+	
+Page used to display that the blog post was successfully posted
+-->
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/signedInTemplate">
+<head>
+	<meta charset="utf-8">
+		<link th:href="@{../styles/snowSportsCss.css}" rel="stylesheet"/>
+
+</head>
+
+
+
+<body>
+	<div layout:fragment="content">
+		<!-- Navbar -->
+		<div th:replace="layouts/returnNav"/>
+		
+		<!-- Content card used to hold the data from the blog post -->
+		<div class="Content">
+			<div class="card2">
+		      <div class="blogTitle">
+			      <h2>Your Blog has been posted!</h2>
+			      <h5>The contents of your blog is:</h5>
+			      <!-- Holds the blog title -->
+			      <h5 th:text="${blog.title}">title</h5>
+			      <!-- Holds the blog body -->
+			      <h5 th:text="${blog.body}">name</h5>
+			      <!-- Holds the blogs author -->
+				  <h5 th:text="${blog.userid}">user</h5>
+		      </div>
+		    </div> 
+		</div>
+	</div>
+</body>
+
+</html>

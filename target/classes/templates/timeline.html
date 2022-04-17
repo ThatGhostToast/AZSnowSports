@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- 
+@Author Zac Almas & Austin Driver	
+	
+Timeline page used to display all the blogs after signing in
+-->
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/signedInTemplate">
+
+<head>
+	<meta charset="utf-8">
+	<link th:href="@{../styles/snowSportsCss.css}" rel="stylesheet" />
+	<link th:href="@{../styles/card.css}" rel="stylesheet" />
+</head>
+
+<body>
+
+<div layout:fragment="content">
+	<!-- Navbars -->
+	<span th:if=${role=="User"}><div th:replace="layouts/signedInNav"></div></span>
+	<span th:if=${role=="Admin"}><div th:replace="layouts/adminNav"></div></span>
+	
+	<!-- Welcoming the user -->
+	<div class="page-content">
+		<h3>Welcome</h3>
+		<h3 th:text="${user.username}"></h3>
+	</div>
+	<br />
+
+	<!-- Table used to hold all of the blog posts -->
+	<tbody>
+		<div class="container">
+			<tr th:each="post : ${blog}">
+				<div class="card">
+					<td style="text-align:center">
+						<h5 th:text="${post.title}" class="card-h1">title</h5>
+					</td>
+					<td style="text-align:center">
+						<h5 th:text="${post.body}" class="card-p">body</h5>
+					</td>
+				</div>
+			</tr>
+		</div>
+	</tbody>
+</div>
+</body>
+
+</html>

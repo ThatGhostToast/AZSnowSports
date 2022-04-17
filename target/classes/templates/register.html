@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- 
+@Author Zac Almas & Austin Driver	
+	
+Page used for registration
+-->
 <html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="layouts/formTemplate.html">
 
@@ -14,16 +19,19 @@
 			<div class="container-login100"
 				style="background-image: url(&quot;http://localhost:8080/assets/images/arnur-turpakpayev-KXXBVqAjBaA-unsplash.jpg&quot;);">
 				<div class="wrap-login100">
+					<!-- Register Form -->
 					<form class="login100-form validate-form" action="#" th:action="@{doRegister}"
 						th:object="${userModel}" method="POST">
+						<!-- AZSnowSport logo on the form -->
 						<span class="login100-form-logo">
-							<i class="zmdi zmdi-landscape"></i>
+							<img src="http://localhost:8080/assets/images/Logo2.png" style="width: 80px; height: 80px">
 						</span>
-
+						<!-- Big title on the form -->
 						<span class="login100-form-title p-b-34 p-t-27">
 							Register
 						</span>
-
+						
+						<!-- Place to enter the user's name into the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter First Name">
 							<input class="input100" type="text" th:field="*{firstName}" placeholder="First Name">
 							<span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -31,7 +39,7 @@
 								First
 								Name Error</h5>
 						</div>
-
+						<!-- Place to enter the user's last name into the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter Last Name">
 							<input class="input100" type="text" th:field="*{lastName}" placeholder="Last Name">
 							<span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -39,7 +47,7 @@
 								Last
 								Name Error</h5>
 						</div>
-
+						<!-- Place to enter the user's email into the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter Email">
 							<input class="input100" type="email" th:field="*{email}" placeholder="EMail">
 							<span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -47,21 +55,21 @@
 								Error
 							</h5>
 						</div>
-
+						<!-- Place to enter the user's address into the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter Address">
 							<input class="input100" type="text" th:field="*{address}" placeholder="Address">
 							<span class="focus-input100" data-placeholder="&#xf207;"></span>
 							<h5 style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address
 							Error</h5>
 						</div>
-						
+						<!-- Place to enter the user's phone number into the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter Phone Number">
 							<input class="input100" type="tel" th:field="*{phoneNumber}" placeholder="Phone Number">
 							<span class="focus-input100" data-placeholder="&#xf207;"></span>
 							<h5 style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
 							Phone Number Error</h5>
 						</div>
-
+						<!-- Place to enter the user's username into the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter username">
 							<input class="input100" type="text" th:field="*{username}" placeholder="Username">
 							<span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -69,7 +77,7 @@
 								Username
 								Error</h5>
 						</div>
-
+						<!-- Place to enter the user's password into the form -->
 						<div class="wrap-input100 validate-input" data-validate="Enter password">
 							<input class="input100" type="password" th:field="*{password}" placeholder="Password">
 							<span class="focus-input100" data-placeholder="&#xf191;"></span>
@@ -77,13 +85,14 @@
 								Password
 								Error</h5>
 						</div>
-
+						<!-- Button to submit the form -->
 						<div class="container-login100-form-btn">
 							<button class="login100-form-btn">
 								Register
 							</button>
 						</div>
 
+						<!-- Button to take the user to the login page if they already have an account -->
 						<div class="text-center p-t-90">
 							<a class="txt1" th:href="@{../login/}">
 								Login

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- 
+@Author Zac Almas & Austin Driver	
+	
+Page used for creating blog posts
+-->
+<html xmlns:th=”http://www.thymeleaf.org” xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/signedInTemplate">
+
+<head>
+	<meta charset="utf-8">
+	<link th:href="@{../styles/snowSportsCss.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<!-- Navbar -->
+		<div th:replace="layouts/returnNav"/>
+		
+		<div class="Content">
+			<!-- Prompts for the user -->
+			<div class="card2">
+				<div class="blogTitle">
+					<h2>Create a blog below</h2>
+					<h5>Enter the Blogs Title, and any content you would like.</h5>
+				</div>
+			</div>
+			<!-- Form for creating the blog post -->
+			<form class="postBlog" action="#" th:action="@{/createBlog/doBlogPost}" th:object="${post}"
+				method="POST">
+				<ul>
+					<!-- Hidden piece of the form that holds the author -->
+					<li>
+						<input type="hidden" th:value="${user.username}" id="userid" name="userid" th:readonly="true">
+					</li>
+					<!-- Input the title -->
+					<li>
+						<label for="title">Title:</label>
+						<input type="text" id="name" th:field="*{title}" placeholder="Title">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						<h5 style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+						Title Error
+						</h5>
+					</li>
+					<!-- Input the blog body -->
+					<li>
+						<label for="body">Blog Below:</label>
+						<textarea type="text" id="body" th:field="*{body}" placeholder="Blog Body" ></textarea>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						<h5 style="color: red" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">
+						Body Error
+						</h5>
+					</li>
+					<li class="button">
+						<button type="submit">Post Your Blog</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>
